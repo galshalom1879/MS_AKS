@@ -33,7 +33,7 @@ az deployment group create \
   --template-file template.json \
   --parameters parameters.json
 
-# get access to cluster using Kubectl
+# login to cluster
 az aks get-credentials --resource-group $resourceGroupName --name $aksClusterName
 kubectl config use-context $aksClusterName
 
@@ -47,7 +47,7 @@ helm install my-nginx ingress-nginx/ingress-nginx \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 echo "Ingress installed"
 
-# Assign owner role for cluster+agentpool within the scope of the ACR
+# enabling pulling image from ACR
 clusterID=$(az aks show --resource-group "$resourceGroupName" --name $aksClusterName --query identity.principalId -o tsv)
 agentpoolID=$(az aks show --resource-group "$resourceGroupName" --name $aksClusterName --query identityProfile.kubeletidentity.objectId -o tsv)
 roleScope=$(az acr show --name $acrName --resource-group $resourceGroupName --query id --output tsv)
