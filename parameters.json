@@ -1,0 +1,107 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "apiVersion": {
+            "value": "2023-10-01"
+        },
+        "resourceName": {
+            "value": "gs-cluster-1"
+        },
+        "location": {
+            "value": "israelcentral"
+        },
+        "dnsPrefix": {
+            "value": "gs-cluster-1-dns"
+        },
+        "kubernetesVersion": {
+            "value": "1.28.5"
+        },
+        "networkPlugin": {
+            "value": "azure"
+        },
+        "enableRBAC": {
+            "value": true
+        },
+        "nodeResourceGroup": {
+            "value": "MC_gs-reasources_gs-cluster-1_israelcentral"
+        },
+        "clusterSku": {
+            "value": {
+                "name": "Base",
+                "tier": "Free"
+            }
+        },
+        "upgradeChannel": {
+            "value": "patch"
+        },
+        "clusterIdentity": {
+            "value": {
+                "type": "SystemAssigned"
+            }
+        },
+        "adminGroupObjectIDs": {
+            "value": []
+        },
+        "disableLocalAccounts": {
+            "value": false
+        },
+        "azureRbac": {
+            "value": false
+        },
+        "enableOmsAgent": {
+            "value": false
+        },
+        "isAvailabilityZoneEnabled": {
+            "value": true
+        },
+        "supportPlan": {
+            "value": "KubernetesOfficial"
+        },
+        "nodeOSUpgradeChannel": {
+            "value": "NodeImage"
+        },
+        "isPrivateClusterSupported": {
+            "value": true
+        },
+        "enablePrivateCluster": {
+            "value": false
+        },
+        "isAzurePolicySupported": {
+            "value": true
+        },
+        "enableAzurePolicy": {
+            "value": false
+        },
+        "isSecretStoreCSIDDriverSupported": {
+            "value": true
+        },
+        "enableSecretStoreCSIDriver": {
+            "value": false
+        },
+        "vmssNodePool": {
+            "value": true
+        },
+        "vnetSubnetID": {
+            "value": "/subscriptions/6590a39e-5aec-48ec-b02b-9f627ad04d29/resourceGroups/gs-reasources/providers/Microsoft.Network/virtualNetworks/gs-reasources-vnet/subnets/default"
+        },
+        "serviceCidr": {
+            "value": "10.0.0.0/16"
+        },
+        "dnsServiceIP": {
+            "value": "10.0.0.10"
+        },
+        "aciVnetSubnetName": {
+            "value": "virtual-node-aci"
+        },
+        "aciConnectorLinuxEnabled": {
+            "value": true
+        },
+        "clusterTags": {
+            "value": {}
+        },
+        "tagsForAllResources": {
+            "value": {}
+        }
+    }
+}
