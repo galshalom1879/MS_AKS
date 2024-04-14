@@ -6,6 +6,10 @@ location="israelcentral"
 aksClusterName="gs-cluster-1"
 acrName="galshaacr"
 
+# Set the subscription
+subscriptionID="paste here your subscription ID"
+az account set --subscription "$subscriptionID"
+
 # Create a resource group
 az group create --name $resourceGroupName --location $location
 echo "Successfully created resource group"
@@ -34,7 +38,6 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 kubectl config use-context $aksClusterName
 
 # install ingress controller
-export KUBECONFIG=/mnt/c/Users/Rachel/.kube/config
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginxq
 helm install my-nginx ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
